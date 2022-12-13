@@ -100,9 +100,6 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
          \centering
 
          \begin{tikzpicture}
-            % \draw (-8,-8) [help lines] grid (8,8);
-            % \draw [red] (-8,0) -- (8,0);
-            % \draw [red] (0,-8) -- (0,8);
             %定义图像
             \node at (0,0) {\includegraphics[height=15cm]{g1.PNG}};
 
@@ -149,6 +146,12 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             \draw [arrow] (20) -- (-3,4.5);
             \node at (-6,7) (21) [text_box] {进水压力变送器};
             \draw [arrow] (21) -- (-2.5,2);
+
+			% 辅助线
+            \def \xLimit {8};
+            \def \yLimit {8};
+            \input{auxiliary_line}
+
          \end{tikzpicture}
          \caption{系统组成}
       \end{figure}
