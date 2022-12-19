@@ -78,7 +78,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
    \zihao{4} 2022年12月12日
    \begin{figure}[h]
       \centering
-      \includegraphics[height=10cm]{g1.PNG}
+      \includegraphics[height=10cm]{g0.PNG}
    \end{figure}
 }
 \date{}
@@ -101,7 +101,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
 
          \begin{tikzpicture}
             %定义图像
-            \node at (0,0) {\includegraphics[height=15cm]{g1.PNG}};
+            \node at (0,0) {\includegraphics[height=15cm]{g01.PNG}};
 
             %说明
             \node at (7,1) (1) [text_box] {流量探头};
@@ -162,11 +162,8 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
          \centering
 
          \begin{tikzpicture}
-         %   \draw (-8,-7) [help lines] grid (8,7);
-         %    \draw [red] (-8,0) -- (8,0);
-         %    \draw [red] (0,-7) -- (0,7);
             %图片
-            \node at (0,0) {\includegraphics[height=12cm]{g1.PNG}};
+            \node at (0,0) {\includegraphics[height=12cm]{g0.PNG}};
 
             %说明
             \node at (7,5) (1) [text_box] {搅拌机};
@@ -201,6 +198,12 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             \draw [arrow] (14) -- (-0.5,-1.8);
             \node at (4,-4) (15) [text_box] {阻尼器};
             \draw [arrow] (15) -- (-0.5,-0.3);
+
+			% 辅助线
+            \def \xLimit {8};
+            \def \yLimit {8};
+            \input{auxiliary_line}
+
          \end{tikzpicture}
          \caption{系统组成}
       \end{figure}
