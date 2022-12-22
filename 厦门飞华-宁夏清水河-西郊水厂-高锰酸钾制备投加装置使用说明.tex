@@ -81,7 +81,6 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
       \includegraphics[height=10cm]{g0.PNG}
    \end{figure}
 }
-\date{}
 
 \maketitle % 封面
 
@@ -93,7 +92,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
 %ctex的\chapter{sdsg}是不能用的
 \section{系统组成及功能说明}
 
-   加药装置的主要组成部分，如下图\ref{fig:p1}或图\ref*{fig:p2}所示。
+   加药装置的主要组成部分，如下图\ref{fig:p1}或图\ref{fig:p2}所示。
    \par也可以参考在线三维模型{\url{http://www.wuyumingtechnology.xyz/2022-Ningxia-Qingshuihe-KMnO4-M155/KMnO4.html}}。
    在线三维模型加载需要一定时间。
    \subsection{系统构成图}
@@ -203,9 +202,9 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             \node at (3,-5) (17) [text_box] {可视液位计};
             \draw [arrow] (17) -- (-1,-1);
 
-			% % 辅助线
-         %    \def \xLimit {8};
-         %    \def \yLimit {8};
+			% 辅助线
+            \def \xLimit {8};
+            \def \yLimit {8};
          %    \input{auxiliary_line}
 
          \end{tikzpicture}
@@ -297,7 +296,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
       检查管道中所有活接接头连接，如有松脱情况需要重新上紧。
 
    \subsection{检查系统中各阀门状态}
-      \subsubsection{各检修阀门应处于关闭状态}\label{sec:sg3}
+      \subsubsection{各检修阀门应处于关闭状态}\label{sec:sg2}
          检修阀门包括检修排液阀、
          检修旁通阀、放空阀等，
          正常运行时均应处于关闭状态。
@@ -397,40 +396,65 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
       \par标定柱的作用是校正流量监控仪表以及确定计量泵真实流量，
       进行流量标定时应将标定柱控制阀，正常工作时应将其关闭。\\
 
-\subsubsection{其余阀门均处于开启状态}
-      除上述特别说明之外的所有阀门，在正常工作状态下，都应处于开启状态。
+        \subsubsection{其余阀门均处于开启状态}
+            除上述特别说明之外的所有阀门，在正常工作状态下，都应处于开启状态。
 
 \newpage % 换页
 
-\section{日常操作}
    \subsection{制备投加系统上电}
+        \subsubsection{电柜操作面板布局}
+        电柜操作面板布局如下图\ref*{fig:p5}所示：
+        \begin{figure}[h]
+            \centering
+            \begin{tikzpicture}
+                %图片
+                \node at (0,0) {\includegraphics[height=10cm]{g03.PNG}};
+
+                %说明
+                \def \itemNumber {1};
+                \def \centertPoint {-1.6, 1.8};
+                \node at (-2,1.5) (\itemNumber) [text_box] {电柜电源进线指示灯};
+                \draw (\centertPoint) rectangle +(1.3,0.5)[red];
+                \def \itemNumber {2};
+                \def \centertPoint {2,5.5};
+                \node at (\centertPoint) (\itemNumber) [text_box] {计量泵隔膜破裂报警};
+                \draw [arrow] (\itemNumber) -- (0.3,2);
+                \draw (-0.2,1.8) rectangle +(0.7,0.5)[red];
+                \def \itemNumber {2};
+                \def \centertPoint {0.8, 2.1};
+                \node at (1,0) (\itemNumber) [text_box] {远程/在地控制切换};
+                \draw [arrow] (\itemNumber) -- (\centertPoint);
+                \draw (\centertPoint) circle (0.2)[red];
+                \def \itemNumber {3};
+                \def \centertPoint {1.3, 2.1};
+                \node at (3,1) (\itemNumber) [text_box] {紧急停机按钮};
+                \draw [arrow] (\itemNumber) -- (\centertPoint);
+                \draw (\centertPoint) circle (0.2)[red];
+
+                % 辅助线
+                \def \xLimit {8};
+                \def \yLimit {7};
+                % \input{auxiliary_line}
+
+            \end{tikzpicture}
+            \caption{电柜操作面板布局}\label{fig:p5}
+        \end{figure}
+
+        \par电柜电源进线指示灯指示进线电源状态。
+        \par计量泵隔膜破裂时，
+        计量泵隔膜破裂报警灯会亮，
+        计量泵正常时不亮。
+        \par远程/在地控制切换旋扭切换控制状态，
+        决定由上位机控制还是在地触摸屏控制。
+        \par发生突发状况时，
+        按下急停按钮，
+        所有运行设备均会紧急停机。
+
       \subsubsection{上电前检查}
          上电之前，
          应先确认电柜电源进线有电，
          且没有缺相。
-
-      \begin{figure}[h]
-         \centering
-         \begin{tikzpicture}
-            %图片
-            \node at (0,0) {\includegraphics[height=10cm]{g03.PNG}};
-
-            %说明
-            \def \itemNumber {1};
-            \def \centertPoint {-1.6, 1.8};
-            \node at (-1,1.5) (\itemNumber) [text_box] {电柜电源进线指示灯};
-            \draw (\centertPoint) rectangle +(1.3,0.5)[red];
-
-			% 辅助线
-            \def \xLimit {8};
-            \def \yLimit {7};
-            % \input{auxiliary_line}
-
-         \end{tikzpicture}
-         \caption{电柜操作面板布局}\label{fig:p5}
-      \end{figure}
-
-      \par如上图\ref*{fig:p5}所示，
+      \par如上图\ref{fig:p5}所示，
       3个电源指示灯全亮，
       即表示电源进线有电，
       且没有缺相，
@@ -438,7 +462,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
 
       \newpage % 换页
 
-      \subsubsection{电柜上电}
+      \subsubsection{电柜上电}\label{sec:power-on}
          \begin{figure}[h]
             \centering
             \begin{tikzpicture}
@@ -468,7 +492,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             \caption{电柜内布局}\label{fig:p6}
          \end{figure}
 
-      \par电柜内布局如上图\ref*{fig:p6}所示。
+      \par电柜内布局如上图\ref{fig:p6}所示。
       \par依次打开
       电柜总开关、380V总开关、220V总开关、开关电源开关、
       二次回路开关，
@@ -501,33 +525,33 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
       加药系统上电如发现异常情况，请与加药系统售后服务人员联系。
       如需自行处理，请先详细查阅附件技术资料，自行处理若操作不当，有可能导致加药系统损坏。
 
-         \newpage % 换页
+\newpage % 换页
 
-   \subsection{设备操作}\label{sec:s1}
-      系统主要通过人机界面进行操作。
-         人机界面上的操作界面，
-         分为设备操作界面、报警及数据纪录界面两类。
-         \par设备操作界面有
-         成品投加控制界面、
-         溶液制备控制界面、
-         反冲洗控制界面3个。
-         \par报警及数据纪录界面有
-         报警记录、
-         加药流量曲线、
-         电机频率曲线、
-         加药历史流量纪录、
-         电机频率历史纪录、
-         运行累积纪录等6个。
+\section{日常操作}\label{sec:sg3}
+   系统主要通过人机界面进行操作。
+      人机界面上的操作界面，
+      分为设备操作界面、报警及数据纪录界面两类。
+      \par设备操作界面有
+      成品投加控制界面、
+      溶液制备控制界面、
+      反冲洗控制界面3个。
+      \par运行状态监控界面 有
+      报警记录、
+      加药流量曲线、
+      电机频率曲线、
+      加药历史流量纪录、
+      电机频率历史纪录、
+      运行累积纪录等6个。
 
-         \subsubsection{成品投加控制界面}
+   \subsection{成品投加控制}
 
-            \par成品投加控制界面如下图\ref{fig:p7}所示。
-            \par成品投加控制界面
-            是系统的主界面，
-            可以切换到其他控制界面，
-            下图\ref{fig:p7}红圈内为切换到其他控制界面的区域。
-            \par同时，成品投加控制界面
-            设置高锰酸钾投加系统的运行参数。
+      \par成品投加控制界面如下图\ref{fig:p7}所示。
+      \par成品投加控制界面
+      是系统的主界面，
+      可以切换到其他控制界面，
+      下图\ref{fig:p7}红圈内为切换到其他控制界面的区域。
+      \par同时，成品投加控制界面
+      设置高锰酸钾投加系统的运行参数。
 
       \begin{figure}[h]
          \centering
@@ -536,14 +560,14 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
                \node at (0,0) {\includegraphics[height=8cm]{g3.PNG}};
 
                %说明
-               \node at (-5,2.7) (1) [text_box, color=red] {低源水水量};
+               \node at (-5,2.7) (1) [text_box, color=red] {切换到其他控制界面};
                \draw (-6.8,0.2) rectangle +(3.3,2.2)[red];
                 \def \itemNumber {2};
                 \def \centertPoint {3,0.1};
                 \node at (8,0.5) (\itemNumber) [text_box] {低液位报警设置};
                 \draw [arrow] (\itemNumber) -- (6.5,0.5);
                 \draw (\centertPoint) rectangle +(3.7,0.5)[red];
-                \node at (8,2.5) (3) [text_box] {1号位置};
+                \node at (8,2.5) (3) [text_box] {低源水水量};
                 \draw (3.5,1.8) rectangle +(2.3,0.6)[red];
                 \draw [arrow] (3) -- (4.5,2);
                 \node at (-5.5,-3.5) (4) [text_box] {1号计量泵控制};
@@ -552,10 +576,10 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             % 辅助线
                \def \xLimit {8};
                \def \yLimit {5};
-               \input{auxiliary_line}
+            %    \input{auxiliary_line}
 
             \end{tikzpicture}
-         \caption{成品投加控制界面}\label{fig:p7}
+            \caption{成品投加控制界面}\label{fig:p7}
       \end{figure}
             源水水量低于
             “低源水水量”
@@ -564,124 +588,183 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             “低液位报警设置”
             的设定时，
             会自动停泵。
-            \par高锰酸钾计量泵控制：
-            \begin{itemize}
-                \item 如果计量泵隔膜破裂，则隔膜状态会亮红灯，正常时为绿灯。
-                \item 冲程长度按现场计量泵的实际冲程长度填写，出厂设置为60\%。
-                \item 当计量泵控制方式设为自动时，变频器频率设定框会变为灰色，
-                    且不可修改，控制方式设为手动时，
-                    可手动设置计量泵变频器运行频率。
-                \item 变频器故障时，
-                    故障状态会亮红灯，
 
-            \end{itemize}
+            \par在上图\ref{fig:p7}界面设置以下参数：
+            \begin{enumerate}
+                \item 投加系数。
+                    \begin{itemize}
+                        \item 溶液投率。
+                        溶液投率由客户工艺实验确定，
+                        出厂默认设置值为1.0mg/L，
+                        即每L源水投加1mg高锰酸钾固体。
+                    \end{itemize}
+                \item 停泵条件。
+                    \begin{itemize}
+                    \item 源水低流量。
+                    源水流量过低，
+                    投加系统自动停泵，
+                    出厂设置是5m$^{3}$/h。
+                    \item 储液池低液位。
+                    储液池液位过低时，
+                    投加系统自动停泵，
+                    出厂设置是0.2m。
+                    \end{itemize}
+                \item 计量泵控制参数
+                    \begin{itemize}
+                        \item 如果计量泵隔膜破裂，
+                            则隔膜状态会亮红灯，
+                            正常时为绿灯。
+                        \item 冲程长度按现场计量泵的实际冲程长度填写，
+                            出厂设置为60\%。
+                        \item 当计量泵控制方式设为自动时，
+                            变频器频率设定框会变为灰色，
+                            且不可修改，
+                            控制方式设为手动时，
+                            可手动设置计量泵变频器运行频率。
+                        \item 变频器故障时，
+                            故障状态会亮红灯，
+                            此时按下“故障”按钮可以复位变频器故障。
+                        \item 检修计量泵或者其附件、管道时，
+                            可按下“检修”按钮，
+                            计量泵进入检修状态，
+                            不可启动。
+                    \end{itemize}
+            \end{enumerate}
 
-         \subsubsection{溶液制备控制界面}
-   \subsection{设置制备系统参数}\label{sec:sg5}
+            \par当计量泵控制方式设为自动时，
+            系统将会自动按相应参数向进水总管投加高锰酸钾,
+            无须人工参与。
+            控制系统在此过程中自动计算计量泵的理论投加流量，
+            并通过PID控制变频器自动调节计量泵运行频率，
+            理论投加流量如下式\ref*{dosing_flow}所示：
+         \begin{equation}
+            \label{dosing_flow}
+            \mbox{理论投量}(L/h) = \mbox{溶液投率}(mg/L)  \times \mbox{源水流量} (m^3/h) \div \mbox{溶液浓度} (\%)
+         \end{equation}
+
+
+   \subsection{溶液制备控制}
+       溶液制备控制界面可由主界面（即成品投加控制界面，参考第\pageref{fig:p7}页图\ref{fig:p7}）进入。
+
+      \subsubsection{制备参数设置}
       制备系统开始运行前，
       要先设置好制备系统运行参数。
-      \par在上图\ref{fig:g7}主控制界面上，
-      按”溶液制备“按钮，
-      切换到溶液制备控制界面。
-      \par或者按”搅拌机控制“按钮，
-      切换到搅拌机控制界面。
-      \par制备系统运行参数设置好之后，
-      将会自动运行，
-      无须人工参与。
-      出现供水水压过低，
-      或料斗料位过低，
-      制备系统将自动停机。
-
-      \newpage
 
       \begin{figure}[h]
          \centering
             \begin{tikzpicture}
-               % \draw (-8,-4) [help lines] grid (8,4);
-               % \draw [red] (-8,0) -- (8,0);
-               % \draw [red] (0,-4) -- (0,4);
                %图片
-               \node at (0,0) {\includegraphics[height=8cm]{g7.PNG}};
+               \node at (0,0) {\includegraphics[height=8cm]{g20.PNG}};
 
                %说明
-               \node at (-1,3) (1) [text_box, color=red] {切换到搅拌机控制};
-               \draw [arrow, color=red] (1) -- (-4,2.5);
-               \node at (-4,2) (1) [text_box, color=red] {参数1};
-               \node at (5.9,2.6) (1) [text_box, color=red] {参数2};
-               \node at (5.9,-0.9) (1) [text_box, color=red] {参数3};
-            \end{tikzpicture}
-         \caption{溶液制备控制界面}\label{fig:g8}
-            \begin{tikzpicture}
-               % \draw (-8,-4) [help lines] grid (8,4);
-               % \draw [red] (-8,0) -- (8,0);
-               % \draw [red] (0,-4) -- (0,4);
-               %图片
-               \node at (0,0) {\includegraphics[height=8cm]{g8.PNG}};
 
-               %说明
-               \node at (-2,3) (1) [text_box, color=red] {切换到溶液制备};
-               \draw [arrow, color=red] (1) -- (-4,2.5);
-               \node at (-4.5,-0.5) (1) [text_box, color=red] {参数4};
+            % 辅助线
+               \def \xLimit {8};
+               \def \yLimit {4};
+               % \input{auxiliary_line}
+
             \end{tikzpicture}
-         \caption{搅拌机控制界面}\label{fig:g9}
+         \caption{溶液制备控制界面}\label{fig:p8}
       \end{figure}
 
-      \par在上图\ref{fig:g8}以及图\ref{fig:g9}界面设置好以下参数：
+      \newpage
+
+      \par在上页图\ref{fig:p8}界面操作方法：
       \begin{enumerate}
+         \item 控制权限。
+            显示当前控制的权限，
+            在上位机或是在地，
+            通过电柜面板上的调节旋钮改变。
+         \item 控制方式。
+            设为手动时，
+            可单独手动操作溶液制备过程各相关设备，
+            一般是独立测试各设备是否正常时使用。
+            手动操作模式时不会有相应联锁，
+            例如就算料位低也可以启动进料螺杆，
+            应谨慎使用手动控制方式。
+            设为自动时，
+            系统会根据制备系数设置，
+            自动控制溶液制备过程。
+         \item 搅拌机控制及设置。
+            \begin{itemize}
+               \item 启动/停止搅拌机。
+                  在手动控制状态，
+                  通过启动/停止按钮启停各搅拌机。
+                  在自动控制状态，
+                  系统会自动控制搅拌机启停。
+               \item 搅拌机当前状态。
+                  搅拌机运行时，
+                  绿灯亮，
+                  搅拌机停止时，
+                  灯为红色。
+               \item 搅拌机检修。
+                  按下“检修”按钮，
+                  检修的红灯亮，
+                  搅拌机不可操作，
+                  这时可以检修对应搅拌机。
+               \item 搅拌机间歇运行参数。
+                  在自动控制状态，
+                  搅拌机每运行若干分钟，
+                  则停止若干分钟，
+                  防止搅拌机电机过热。
+                  在溶液制备过程中，
+                  搅拌机运行时长超过设置也不会停机，
+                  保证制备时溶液充分混合，
+                  仅在非制备状态时会间歇停机。
+                  \begin{itemize}
+                     \item 运行时长。
+                        出厂设置值120min。
+                     \item 间歇时长。
+                        出厂设置值5min。
+                  \end{itemize}
+            \end{itemize}
+         \item 料斗物位。
+            \begin{itemize}
+                \item 料斗物位过高时，
+                    “过高”红灯亮。
+                \item 料斗物位过低时，
+                    “过低”红灯亮。
+                    在自动控制状态，
+                    料斗物位过低时，
+                    溶液制备过程会自动停止，
+                    电动进水阀会自动关闭，
+                    螺旋进料器会自动停机。
+            \end{itemize}
          \item 制备系数。
             \begin{itemize}
-               \item 溶液制备量。制备系统设计制备能力为1000L/h。
-               \item 高锰酸钾浓度。常用浓度为1\% -- 2\%，默认设置为1\%。
-               \item 溶液密度。以1\%浓度算，溶液密度为1.006g/cm$^{3}$。
+               \item 溶液制备量。
+               制备系统设计制备能力为1000L/h。
+               \item 高锰酸钾浓度。
+               常用浓度为1\%$\sim$2\%，
+               出厂设置值1\%。
             \end{itemize}
-         \item 开机、停机液位。
+         \item 储液池液位显示，
+            开机、停机液位设置。
             \begin{itemize}
-               \item 开机液位。储液池液位低于开机液位时，制备系统自动开机，默认0.5m。
-               \item 停机液位。储液池液位高于停机液位时，制备系统自动停机，默认0.9m。
+               \item 储液池当前液位显示。
+               \item 开机液位。
+                  储液池液位低于开机液位时，
+                  制备系统自动开机，
+                  出厂设置值0.5m。
+               \item 停机液位。
+                  储液池液位高于停机液位时，
+                  制备系统自动停机，
+                  出厂设置值0.8m。
             \end{itemize}
+         \item 进料螺杆控制。
+            在自动控制状态，
+            进料螺杆启停由系统根据储液池液位自动控制，
+            进料螺杆运行频率，
+            由系统自动计算，
+            计算公式
          \item 低水压停机值。进水压力低于此值制备系统自动停机，出厂设置值为2bar。
-         \item 搅拌机间歇运行参数。搅拌机每运行若干分钟，则停止若干分钟。
-            \begin{itemize}
-               \item 运行时长。默认30min。
-               \item 间歇时长。默认5min。
-            \end{itemize}
       \end{enumerate}
-      
 
-   \subsection{制备系统供水、上料}
-      \subsubsection{制备系统供水}\label{sec:sg2}
+      \subsubsection{制备系统供水}\label{sec:sg4}
          连接制备系统供水管道，
          确认供水压力高于低水压停机值（出厂设定为2bar）。
          如果供水压力低于低水压停机值，
          制备系统会自动停机。
-      \begin{figure}[h]
-         \centering
-            \begin{tikzpicture}
-               % \draw (-8,-4) [help lines] grid (8,4);
-               % \draw [red] (-8,0) -- (8,0);
-               % \draw [red] (0,-4) -- (0,4);
-               %图片
-               \node at (0,0) {\includegraphics[height=8cm]{g9.PNG}};
-
-               %说明
-               \node at (-8,-3) (1) [text_box] {进水管};
-               \draw [arrow] (1) -- (-5.2,-2.3);
-               \draw (-5.2,-2.3) circle (0.5)[red];
-               \node at (4,4) (2) [text_box] {进水压力表及压力变送器};
-               \draw [arrow] (2) -- (-1.5,0.5);
-               \draw (-1.5,0.5) circle (0.5)[red];
-               \node at (-6,3) (3) [text_box] {进水流量探头};
-               \draw [arrow] (3) -- (-2.8,0);
-               \draw (-2.8,0) circle (0.5)[red];
-               \node at (7,-3) (4) [text_box] {转子流量计};
-               \draw [arrow] (4) -- (0,-1.5);
-               \draw (0,-1.5) circle (0.5)[red];
-               \node at (7,2) (5) [text_box] {真空上料机};
-               \draw [arrow] (5) -- (2,-1.5);
-               % \draw (2,-1.5) circle (0.5)[red];
-            \end{tikzpicture}
-         \caption{制备系统供水说明}\label{fig:g10}
-      \end{figure}
 
       \subsubsection{制备系统上料}
          制备系统正常运行，
@@ -689,30 +772,38 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
          料斗内有物位探头，
          料位过低，
          制备系统则自动停机。
-         \par料斗内原料不足时，
-         应使用真空上料机（参考\ref{sec:sg2}的图\ref{fig:g10}），
-         向料斗内补充原料。
+         下图\ref{fig:p9}显示为
+         溶液制备控制界面
+         上显示料斗物位的位置。
 
-         \par启动真空上料机操作流程如下：
-         \begin{enumerate}
-            \item 打开真空上料机电源开关。见下图\ref{fig:g11}。
-            \item 将吸料嘴伸入高锰酸钾粉料包装内。见下图\ref{fig:g11}。
-            \item 按run/stop按钮启动真空上料机。
-            启动真空上料机之后，
-            上料机会自动运行/停止/运行间歇运行，
-            方便已经吸上的粉料落入料斗内，
-            过程中无须人工干预。见下图\ref{fig:g11}。
-            \item 上料过程中应通过人机界面观察料斗内料位状态。见下图\ref{fig:g12}。
-         \end{enumerate}
+          \begin{figure}[h]
+             \centering
+               \begin{tikzpicture}
+                  %图片
+                  \node at (0,0) {\includegraphics[height=7cm]{g2.PNG}};
+
+                  %说明
+                  \node at (-7,-1) (1) [text_box, color=red] {料斗料位};
+                  \draw (-5.9,-1.7) rectangle +(2.5,1.0) [red];
+
+            % 辅助线
+               \def \xLimit {8};
+               \def \yLimit {4};
+                %\input{auxiliary_line}
+
+               \end{tikzpicture}
+            \caption{溶液制备控制界面中料斗物位的位置}\label{fig:p9}
+         \end{figure}
+
+         \par料斗内原料不足时，
+         应使用真空上料机（参考下图\ref{fig:p10}），
+         向料斗内补充原料。
 
          \begin{figure}[h]
             \centering
                \begin{tikzpicture}
-                  % \draw (-8,-4) [help lines] grid (8,4);
-                  % \draw [red] (-8,0) -- (8,0);
-                  % \draw [red] (0,-4) -- (0,4);
                   %图片
-                  \node [rotate=-90] at (0,0) {\includegraphics[height=6.6cm]{g10.PNG}};
+                  \node [rotate=-90] at (0,0) {\includegraphics[height=6.6cm]{g23.JPG}};
 
                   %说明
                   \node at (-6,-2) (1) [text_box] {吸料嘴};
@@ -725,173 +816,263 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
                   \draw [arrow] (5) -- (1.5,1);
                   \draw (1.5,1) circle (0.8)[red];
                \end{tikzpicture}
-            \caption{真空上料机结构说明}\label{fig:g11}
-         % \end{figure}
-
-         % \begin{figure}[h]
-         %    \centering
-               \begin{tikzpicture}
-                  % \draw (-8,-4) [help lines] grid (8,5);
-                  % \draw [red] (-8,0) -- (8,0);
-                  % \draw [red] (0,-4) -- (0,4);
-                  %图片
-                  \node at (0,0) {\includegraphics[height=8cm]{g7.PNG}};
-
-                  %说明
-                  \node at (-2.5,2) (1) [text_box, color=red] {料斗料位};
-                  \draw [arrow, color=red] (1) -- (-5,-0.2);
-                  \draw (-6.8,-0.9) rectangle +(3.3,1.2)[red];
-               \end{tikzpicture}
-            \caption{溶液制备控制界面}\label{fig:g12}
-         \end{figure}
-
+            \caption{真空上料机结构说明}\label{fig:p10}
+          \end{figure}
          \newpage
 
-            已经吸入足够粉料，或料斗料位探头高报警，则应停止真空上料机。见上图\ref{fig:g12}。
-         \par停止真空上料机操作流程如下：
+
+         \par启动真空上料机操作流程如下：
          \begin{enumerate}
-            \item 按run/stop按钮启动真空上料机。见上图\ref{fig:g11}。
-            \item 将吸料嘴伸入高锰酸钾粉料包装内。见上图\ref{fig:g11}。
-            \item 打开真空上料机电源开关。见上图\ref{fig:g11}。
+            \item 打开真空上料机电源开关。见上页图\ref{fig:p10}。
+            \item 将吸料嘴伸入高锰酸钾粉料包装内。见上页图\ref{fig:p10}。
+            \item 按run/stop按钮启动真空上料机。
+            启动真空上料机之后，
+            上料机会自动运行/停止/运行间歇运行，
+            方便已经吸上的粉料落入料斗内，
+            过程中无须人工干预。见上页图\ref{fig:p10}。
+            \item 上料过程中应通过人机界面观察料斗内料位状态。见上页图\ref{fig:p9}。
          \end{enumerate}
 
-   \subsection{设置投加系统参数}
-        投加系统运行参数设置好之后，
-        系统将会自动按相应参数向进水总管投加高锰酸钾，
-        无须人工参与。
-        \par源水流量过低，
-        或储液池液位过低，
-        制备系统将自动停机。
+            已经吸入足够粉料，或料斗料位探头高报警，则应停止真空上料机。
+            见上图\ref{fig:p9}。
 
-        \begin{figure}[h]
-            \centering
+         \par停止真空上料机操作流程如下：
+         \begin{enumerate}
+            \item 按run/stop按钮停止真空上料机。见上图\ref{fig:p10}。
+            \item 将吸料嘴伸入高锰酸钾粉料包装内。见上图\ref{fig:p10}。
+            \item 关闭真空上料机电源开关。见上图\ref{fig:p10}。
+         \end{enumerate}
+
+     \subsection{反冲洗控制}
+        反冲洗的目的，
+        是在检修前使用自来水冲洗管道，
+        或管道有轻微堵塞时，
+        使用较大量自来水将堵塞物冲走。
+
+        \par在 反冲洗管道 过程中，
+        计量泵会自动停机，
+        直至反冲洗过程完成。
+
+       \par反冲洗控制界面可由主界面（即成品投加控制界面，参考第\pageref{fig:p7}页图\ref{fig:p7}）进入。
+       反冲洗控制界面如下图\ref{fig:p11}所示。
+
+          \begin{figure}[h]
+             \centering
                 \begin{tikzpicture}
-                %图片
-                \node at (0,0) {\includegraphics[height=8cm]{g6.PNG}};
+                   %图片
+                   \node at (0,0) {\includegraphics[height=8cm]{g6.PNG}};
 
-                %说明
-                \node at (-4.2,0.2) (1) [text_box, color=red] {参数1};
-                \node at (4.3,2.3) (2) [text_box, color=red] {参数2};
-                \node at (5.5,0.6) (3) [text_box, color=red] {参数2};
-                \node at (-2.2,-3.6) (4) [text_box, color=red] {参数3};
-                \node at (5.4,-1.8) (5) [text_box, color=red] {参数4};
-                \node at (-5.2,-1.8) (6) [text_box, color=red] {参数4};
+                   %说明
+                   \node at (7,3) (1) [text_box, color=red] {自动反冲洗按钮};
+                   \node at (7,-0.5) (2) [text_box, color=red] {自动反冲洗按钮};
+                   \node at (7,2.4) (3) [text_box, color=red] {手动开关按钮};
+                   \node at (7,0.9) (4) [text_box, color=red] {手动开关按钮};
+                   \node at (7,-1.1) (5) [text_box, color=red] {手动开关按钮};
+                   \node at (7,-2.7) (6) [text_box, color=red] {手动开关按钮};
+                   \node at (7,-3.4) (7) [text_box, color=red] {阀门状态指示};
+                   \node at (7,-1.7) (7) [text_box, color=red] {阀门状态指示};
+                   \node at (7,0.2) (7) [text_box, color=red] {阀门状态指示};
+                   \node at (7,1.7) (7) [text_box, color=red] {阀门状态指示};
 
-                %坐标辅助线
-                % \draw (-8,-4) [help lines] grid (8,4);
-                % \draw [red] (-8,0) -- (8,0);
-                % \draw [red] (0,-4) -- (0,4);
+                    % 辅助线
+                       \def \xLimit {8};
+                       \def \yLimit {4};
+                        %\input{auxiliary_line}
+
                 \end{tikzpicture}
-            \caption{成品投加控制界面}\label{fig:g13}
-        \end{figure}
+             \caption{反冲洗控制界面}\label{fig:p11}
+          \end{figure}
 
-      \par在上图\ref{fig:g13}界面设置以下参数：
-      \begin{enumerate}
-         \item 投加系数。
-            \begin{itemize}
-                \item 溶液投率。设计溶液投率为1mg/L即每L源水投加1mg高锰酸钾固体。
-                \item 溶液密度。以1\%浓度算，溶液密度为1.006g/cm$^{3}$。
-                \item 高锰酸钾浓度。在溶液制备参数中已设置（见\ref{sec:sg5}第\pageref{sec:sg5}页），此处无须再设置。
-            \end{itemize}
-         \item 停泵条件。
-            \begin{itemize}
-               \item 源水低流量。源水流量过低，投加系统自动停泵，默认5m$^{3}$/h。
-               \item 储液池低液位。储液池液位过低时，投加系统自动停泵，默认0.2m。
-            \end{itemize}
-        \item 计量泵轮换设置。计量泵连续运行若干小时，则切换到另1台计量泵运行，默认8小时。
-        \item 计量泵冲程长度。计量泵当前冲程长度，默认是60\%，如要修改请参考计量泵操作说明。
-      \end{enumerate}
+          \newpage
 
-    \subsection{累积记录、报警记录、运行曲线、历史数据}
-        高锰酸钾自动制备投加系统运行状态监控界面有累积记录、报警记录、运行曲线等、历史数据。
+          \par在上页图\ref{fig:p11}界面操作方法：
+              \begin{enumerate}
+                 \item 控制权限。
+                    显示当前控制的权限，
+                    在上位机或是在地，
+                    通过电柜面板上的调节旋钮改变。
+                 \item 控制方式，
+                     分为“手动阀门操作”和“自动反冲洗控制”。
+                    \par设为手动时，
+                    手动开关供药电动阀、反冲洗电动阀，
+                    一般是独立测试各阀门是否正常时使用。
+                    \par设为自动时，
+                    系统会自动控制各阀门的开关，
+                    自动控制加药管道的反冲洗过程。
+                \item 自动反冲洗按钮，
+                    系统在 手动阀门操作 状态时，
+                    自动反冲洗按钮会变为灰色。
+                \item 手动开关按钮，
+                    系统在 自动反冲洗控制 状态时，
+                    手动开关按钮会变为灰色。
+            \end{enumerate}
+
+    \subsection{运行状态监控界面}
+        高锰酸钾自动制备投加系统 运行状态监控界面 有
+          报警记录、
+          加药流量曲线、
+          电机频率曲线、
+          加药历史流量纪录、
+          电机频率历史纪录、
+          运行累积纪录等6个。
         \par上述几个界面，
         均可从主控制界面进入，
-        参考\ref{sec:sg1}第\pageref{sec:sg1}页图\ref{fig:g7}。
+        参考第\pageref{sec:sg3}页图\ref{fig:p7}。
 
         \subsubsection{累积记录}
             \begin{figure}[h]
                 \centering
-                \includegraphics[height=6cm]{g10.PNG}
-                \caption{累积纪录}\label{fig:g14}
+                \includegraphics[height=7cm]{g22.PNG}
+                \caption{累积纪录}\label{fig:p12}
             \end{figure}
             
+        \newpage
+
         \subsubsection{报警记录}
             \begin{figure}[h]
                 \centering
-                \includegraphics[height=6cm]{g10.PNG}
-                \caption{报警记录}\label{fig:g15}
+                \includegraphics[height=7cm]{g8.PNG}
+                \caption{报警记录}\label{fig:p13}
             \end{figure}
-
-        \newpage
 
         \subsubsection{运行曲线}
+            运行曲线 展示 设备的实时运行状态，
+            每秒刷新。
+            \par运行曲线 有 加药流量曲线 和 电机频率曲线 两种。
             \begin{figure}[h]
                 \centering
-                \includegraphics[height=6cm]{g10.PNG}
-                \caption{加药流量曲线}\label{fig:g16}
-               \quad\\ 
-                \includegraphics[height=6cm]{g10.PNG}
-                \caption{电机频率曲线}\label{fig:g17}
+                \includegraphics[height=7cm]{g9.PNG}
+                \caption{加药流量曲线}\label{fig:p14}
             \end{figure}
-
-\section{维护及检修}
-   建议联系加药系统经销商及售后服务人员，
-   由专业人士进行维护及检修，
-   如自行进行维护及检修，
-   有可能导致制备投加装置损坏。
-   \par维护及检修之前，
-   请先阅读下文，
-   以及计量泵的操作说明书。
-   下文内容为加药装置维护及检修操作方法。
-
-   \subsection{制备系统的检修维护}
-        \subsubsection{传感器及电动阀的检修维护} 
-            制备系统的传感器有进水压力变送器、
-            进水压力表、进水电动阀、
-            进水流量探头、储液槽超声波液位计、
-            料斗高低料位探头等。
 
             \newpage
 
             \begin{figure}[h]
                 \centering
+                \includegraphics[height=7cm]{g10.PNG}
+                \caption{电机频率曲线}\label{fig:p15}
+            \end{figure}
+
+        \subsubsection{历史记录}
+            历史记录 展示 设备过往的运行数据，
+            每5分钟记录一次数据，
+            最多可记录50000条历史数据，
+            记录保存时间为1年。
+            \par历史记录 有 加药流量 历史记录 和 电机频率 历史记录 两种。
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[height=7cm]{g12.PNG}
+                \caption{加药流量 历史记录}\label{fig:p16}
+            \end{figure}
+
+            \newpage
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[height=7cm]{g11.PNG}
+                \caption{电机频率 历史记录}\label{fig:p17}
+            \end{figure}
+
+\section{维护及检修}
+   建议联系制备投加系统经销商及售后服务人员，
+   由专业人士进行维护及检修，
+   如自行进行维护及检修，
+   有可能导致制备投加装置损坏。
+   \par维护及检修 工作的 操作人员，
+   应持有相应工作的 上岗证 或者 资质资格证书，
+   佩戴相应安全防保用具，
+   方可开始 维护及检修 工作。
+   \par维护及检修之前，
+   请先阅读下文，
+   以及计量泵的操作说明书。
+   下文内容为加药装置维护及检修操作方法。
+
+    \par进行 检修维护 之前，
+    应先切断相应设备的电源，
+    才能进行操作，
+    各设备开关在电柜中的位置， 
+    请参考第\pageref{sec:power-on}页图\ref{fig:p6}。
+    开关上贴有标志，
+    说明该开关是哪个设备的电源。
+
+   \subsection{制备系统的检修维护}
+
+        \subsubsection{控制方式设为手动} 
+            开始检修之前，
+            应将 溶液制备控制界面 的 控制方式 设为手动。
+            \par设置方法：
+            进入 溶液制备控制界面，
+            如下页图\ref{fig:p18}，
+            将 控制方式设为手动。
+
+          \begin{figure}[h]
+             \centering
+                \begin{tikzpicture}
+                   %图片
+                   \node at (0,0) {\includegraphics[height=8cm]{g21.PNG}};
+
+                   %说明
+                    \draw (-2,2.25) rectangle +(2,0.5)[red];
+
+                    % 辅助线
+                       \def \xLimit {8};
+                       \def \yLimit {4};
+                        %\input{auxiliary_line}
+
+                \end{tikzpicture}
+             \caption{溶液制备控制界面}\label{fig:p18}
+          \end{figure}
+
+          \newpage
+
+        \subsubsection{传感器及电动阀的检修维护} 
+
+            \begin{figure}[h]
+                \centering
                 \begin{tikzpicture}
                     %图片
-                    \node at (0,0) {\includegraphics[height=10cm]{g9.PNG}};
+                    \node at (0,0) {\includegraphics[height=8cm]{g06.PNG}};
 
                     %说明
-                    \node at (-7,2) (2) [text_box] {进水流量探头};
-                    \draw [arrow] (2) -- (-3.5,0);
-                    \draw (-3.5,0) circle (0.5)[red];
-                    \node at (0,3) (1) [text_box] {检修截止阀};
-                    \draw [arrow] (1) -- (-1.2,-0.4);
-                    \draw (-1.2,-0.4) circle (0.5)[red];
+                    \node at (-1.5,3) (1) [text_box] {检修截止阀};
+                    \draw [arrow] (1) -- (-0.2,-0.2);
+                    \draw (-0.2,-0.2) circle (0.4)[red];
+                    \node at (-3,4) (2) [text_box] {进水电磁流量计};
+                    \draw [arrow] (2) -- (-1.5,0.5);
+                    \draw (-1.5,0.5) circle (0.4)[red];
                     \node at (-8,-3) (3) [text_box] {检修旁通阀};
-                    \draw [arrow] (3) -- (-2.7,-1.5);
-                    \draw (-2.7,-1.5) circle (0.5)[red];
+                    \draw [arrow] (3) -- (-2.2,-0.8);
+                    \draw (-2.2,-0.8) circle (0.4)[red];
                     \node at (-8,1) (4) [text_box] {检修截止阀};
-                    \draw [arrow] (4) -- (-4.5,-0.4);
-                    \draw (-4.5,-0.4) circle (0.5)[red];
-                    \node at (-6,3) (5) [text_box] {进水电动阀};
-                    \draw [arrow] (5) -- (-2.5,0);
-                    \draw (-2.5,0) circle (0.5)[red];
-                    \node at (-1,4) (6) [text_box] {进水压力表及变送器};
-                    \draw [arrow] (6) -- (-1.8,0.8);
-                    \draw (-1.8,0.8) circle (0.5)[red];
-                    \node at (3,5) (7) [text_box] {超声波液位计};
-                    \draw [arrow] (7) -- (0.5,1.5);
-                    \draw (0.5,1.5) circle (0.5)[red];
-                    \node at (5,4) (8) [text_box] {超声波液位计安装座};
-                    \draw [arrow] (8) -- (0.5,0.5);
-                    \draw (0.5,0.5) circle (0.5)[red];
+                    \draw [arrow] (4) -- (-3.9,-0.2);
+                    \draw (-3.9,-0.2) circle (0.4)[red];
+                    \node at (-6.5,2) (5) [text_box] {进水电动阀};
+                    \draw [arrow] (5) -- (-3.15,0);
+                    \draw (-3.15,0) circle (0.4)[red];
+                    \node at (-5,3) (6) [text_box] {进水压力表及变送器};
+                    \draw [arrow] (6) -- (-2.6,0.5);
+                    \draw (-2.6,0.5) circle (0.4)[red];
+                    \node at (3,4) (7) [text_box] {超声波液位计};
+                    \draw [arrow] (7) -- (0.2,1.3);
+                    \draw (0.2,1.3) circle (0.4)[red];
+                    \node at (5,3) (8) [text_box] {超声波液位计安装座};
+                    \draw [arrow] (8) -- (0.2,0.5);
+                    \draw (0.2,0.5) circle (0.4)[red];
 
-                    %辅助线
-                    % \draw (-8,-5) [help lines] grid (8,5);
-                    % \draw [red] (-8,0) -- (8,0);
-                    % \draw [red] (0,-5) -- (0,5);
+                    % 辅助线
+                   \def \xLimit {8};
+                   \def \yLimit {4};
+                    %\input{auxiliary_line}
+
                 \end{tikzpicture}
-                \caption{主要传感器及电动阀位置}
+                \caption{主要传感器及电动阀位置}\label{fig:p19}
             \end{figure}
+
+            制备系统的传感器有进水压力变送器、
+            进水压力表、进水电动阀、
+            进水流量探头、储液槽超声波液位计、
+            料斗高低料位探头等。
 
             \par 检修进水流量探头、
             进水电动阀、
@@ -904,11 +1085,13 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             即可检修
             超声波液位计。
 
+            \newpage
+
             \begin{figure}[h]
                 \centering
                 \begin{tikzpicture}
                     %图片
-                    \node  at (0,0) {\includegraphics[height=5.5cm]{g10.PNG}};
+                    \node  at (0,0) {\includegraphics[height=5.5cm]{g15.JPG}};
 
                     %说明
                     \node at (-5,2) (2) [text_box] {料斗高料位探头};
@@ -923,7 +1106,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
                     % \draw [red] (-8,0) -- (8,0);
                     % \draw [red] (0,-2) -- (0,2);
                 \end{tikzpicture}
-                \caption{料斗高低料位探头}\label{fig:g18}
+                \caption{料斗高低料位探头}\label{fig:p20}
             \end{figure}
 
             \par 料斗高低料位探头
@@ -932,8 +1115,6 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
             料斗高低料位探头
             之前，
             应先清理料斗内残留的高锰酸钾固体粉料。
-
-            \newpage
         
         \subsubsection{搅拌机及螺旋进料器检修维护}
             检修维护搅拌机及螺旋进料器，
@@ -946,7 +1127,7 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
                 \centering
                 \begin{tikzpicture}
                     %图片
-                    \node  at (0,0) {\includegraphics[height=10cm]{g3.PNG}};
+                    \node  at (0,0) {\includegraphics[height=10cm]{g01.PNG}};
 
                     %说明
                     \node at (4,-3) (2) [text_box] {排液阀};
@@ -958,24 +1139,18 @@ bottom=2.5cm,bindingoffset=0.5cm]{geometry}
                     \node at (2,-5) (3) [text_box] {排液阀};
                     \draw [arrow] (3) -- (-1.6,-3.5);
                     \draw (-1.6,-3.5) circle (0.5)[red];
-                    \node at (-6,1) (4) [text_box] {连接活接};
-                    \draw [arrow] (4) -- (-2.3,-0.8);
-                    \draw (-2.3,-0.8) circle (0.5)[red];
 
                     %辅助线
                     % \draw (-8,-5) [help lines] grid (8,5);
                     % \draw [red] (-8,0) -- (8,0);
                     % \draw [red] (0,-5) -- (0,5);
                 \end{tikzpicture}
-                \caption{料斗高低料位探头}\label{fig:g19}
+                \caption{料斗高低料位探头}\label{fig:p21}
             \end{figure}
 
             \par 拆卸检修搅拌机及螺旋进料器之前，
-            应先打开上图\ref{fig:g19}所示排液阀，
-            排尽制备装置内液体，
-            松开上图\ref{fig:g19}所示活接，
-            才能打开制备系统上盖，
-            检修或维护。
+            应先打开上图\ref{fig:p21}所示排液阀，
+            排尽制备装置内液体。
 
    \subsection{投加系统的检修维护}
         投加系统主要由
